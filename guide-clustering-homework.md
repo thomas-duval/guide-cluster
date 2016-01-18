@@ -22,7 +22,7 @@ In your analysis, consider the following topics:
 
 ## A very basic CRISPR introduction
 In CRISPR/Cas9 genome editing, a DNA cutting enzyme (nuclease) known as Cas9 is targeted toward a specific part(s) of the genome by encoding instructions in a nucleic acid sequence, known as a guide RNA. The nuclease is thought to search the genome by jumping to a random point and then linearly scanning for the pattern NGG before detaching and repeating the cycle at a new location. If the pattern NGG is found, the nuclease then checks the 20 character programmable pattern right to left. If the match is *sufficiently close*, typically fewer than 4 mismatches, then the nuclease will cut the genome at this location. Otherwise it will detach and try another location.
-
+![CRISPR searchs for a 20 character sequence and cuts](images/fgen-crispr-diagram.jpg)
 The host cell will then attempt to repair this cut with one of several different repair pathways each with a characteristic, at times imperfect, outcome. If the genome is cut inside of functional region, a gene, this gene may be disabled if the repair is imperfect. If this gene is essential and imperfectly repaired, then the cell can die. By repeating this process in parallel millions of times with different guide sequences, we can use CRISPR to determine the genes a cell needs to survive. These genes are often good drug targets when the cell is a cancer cell.
 
 ## Sample CRISPR Library Functional Screening Data
