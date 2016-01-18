@@ -4,7 +4,7 @@
 Cluster the CRISPR guide RNAs in the included TSV file, determine predictors of guide RNA activity, and generally comment on the “shape” of the data and any interesting trends or patterns you find.
 
 ## Rules
-This task is untimed. You may use any programming language, libraries, or frameworks available to you provided they are available to others to reproduce your analysis. You should clearly distinguish your original code from 3rd party code. Clearly demonstrating your process and laying out your “thoughts in code” is more important than runtime performance. We must be able to re-create your analysis.
+This task is un-timed. You may use any programming language, libraries, or frameworks available to you provided they are available to others to reproduce your analysis. You should clearly distinguish your original code from 3rd party code. Clearly demonstrating your process and laying out your “thoughts in code” is more important than runtime performance. We must be able to re-create your analysis. Organisation counts and the ability to layout and document a source repository in a sensible way is part of the assignment. Formal unit testing is not required, but one should provide evidence there analysis was executed as intended and results are due to errors like improper parameters.
 
 ## Instructions
 Fork this repository, write one or more scripts to analyze the included guide_data.tsv file, then make a pull request back with your code and email getin@desktopgenetics.com with the subject “Homework Complete” including a summary of your results. You may also want to generate documents, makefiles, plots, figures, or other pieces of code to support your analysis or allow it to be reproduced by us.
@@ -42,12 +42,5 @@ All other factors, such as the number of cells and the nuclease, where held cons
 Scientists are currently trying to figure out what features of a guide and the location it targets influence its behavior. Information is present in nucleic acids in mechanical (ie. curvature), chemical (ie. binding thermodynamics), and symbolic (ie. ATG is a start codon) forms. Some scientists have used Support Vector Machines and Logistic Regression to try and determine if particular bases or pairs of bases at particular positions in the guide make it more active. For example, a “G” in the right-most position may be beneficial. The results have been mixed and possibly suffer from over-fitting. A few key points are known:
 - Cut sites with the same sequence but in different locations and contexts occur with different frequencies.
 - Guides with different sequences but cutting right next to each other have different activities.
-
-
-
-
-
-
- 
 
 
