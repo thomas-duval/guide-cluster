@@ -16,8 +16,8 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 
 # Import features values and names from text files
-X = np.loadtxt(open("feature.txt"))
-y = np.asarray(open("feature_list.txt").readlines())
+X = np.loadtxt(open("../data/feature.txt"))
+y = np.asarray(open("../data/feature_list.txt").readlines())
 
 # kmeans algorithm using scikit-learn
 n_clusters = 4
@@ -34,9 +34,9 @@ for i in range(n_clusters):
     distrib.append(counter[i])
 
 # Export results to text files
-np.savetxt('cluster_labels.txt', cluster_labels)  # clusters label for each RNA
-np.savetxt('cluster.txt', centers)  # clusters coordinate
-np.savetxt('distribution.txt', distrib)  # cluster distribution among guides
+np.savetxt('../data/cluster_labels.txt', cluster_labels)  # clusters label for each RNA
+np.savetxt('../data/cluster.txt', centers)  # clusters coordinate
+np.savetxt('../data/distribution.txt', distrib)  # cluster distribution among guides
 
 # coordinate for average guide
 average_X = []
@@ -55,7 +55,7 @@ plt.scatter(centers[:, 0], centers[:, 2],
 for i, c in enumerate(centers):
     plt.scatter(c[0], c[2], marker='$%d$' % i, alpha=1, s=50)
 plt.scatter(average_X[0], average_X[2], marker='x', c='black', alpha=1, s=300)  # Plot average guide
-plt.savefig('0-2.png')
+plt.savefig('../images/0-2.png')
 plt.clf()
 
 # Plot between feature number 1 (T) and number 3 (C)
@@ -67,7 +67,7 @@ plt.scatter(centers[:, 1], centers[:, 3],
 for i, c in enumerate(centers):
     plt.scatter(c[1], c[3], marker='$%d$' % i, alpha=1, s=50)
 plt.scatter(average_X[1], average_X[3], marker='x', c='black', alpha=1, s=300)
-plt.savefig('1-3.png')
+plt.savefig('../images/1-3.png')
 plt.clf()
 
 # Plot between feature number 4 (GG) and number 9 (GC)
@@ -79,7 +79,7 @@ plt.scatter(centers[:, 4], centers[:, 9],
 for i, c in enumerate(centers):
     plt.scatter(c[4], c[9], marker='$%d$' % i, alpha=1, s=50)
 plt.scatter(average_X[4], average_X[9], marker='x', c='black', alpha=1, s=300)
-plt.savefig('4-9.png')
+plt.savefig('../images/4-9.png')
 plt.clf()
 
 # Plot between feature number 5 (TA) and number 10 (Tm)
@@ -91,5 +91,5 @@ plt.scatter(centers[:, 5], centers[:, 10],
 for i, c in enumerate(centers):
     plt.scatter(c[5], c[10], marker='$%d$' % i, alpha=1, s=50)
 plt.scatter(average_X[5], average_X[10], marker='x', c='black', alpha=1, s=300)
-plt.savefig('5-10.png')
+plt.savefig('../images/5-10.png')
 plt.show()

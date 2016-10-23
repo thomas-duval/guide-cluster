@@ -9,7 +9,7 @@
 import numpy as np
 
 # Import activity and cluster assignement for each guide
-rank = np.loadtxt('rank.txt', delimiter="\t")
+rank = np.loadtxt('../data/rank.txt', delimiter="\t")
 
 # Divide guides based on their activity and cluster
 quartile = np.zeros(shape=(4, 4))
@@ -28,4 +28,4 @@ for q in range(4):
         quartile[c][q] = count
 
 # Export results as a text file
-np.savetxt('prediction.txt', quartile)
+np.savetxt('../data/prediction.txt', quartile)

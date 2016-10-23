@@ -20,14 +20,14 @@ feature = []
 
 
 # Open files containing sgRNA and transfer them into an array
-with open('RNA.txt', newline='') as inputfile:
+with open('../data/RNA.txt', newline='') as inputfile:
     for row in csv.reader(inputfile):
         sequence_import.append(row)
 sequence = np.asarray(
     [item for sublist in sequence_import for item in sublist])
 
 # Open files containing melting temperature and transfer them into an array
-with open('Tm.txt', newline='') as inputfile:
+with open('../data/Tm.txt', newline='') as inputfile:
     for row in csv.reader(inputfile):
         tm_import.append(row)
 tm = [item for sublist in tm_import for item in sublist]
@@ -50,4 +50,4 @@ for idx, guide in enumerate(sequence):
 for idx, temp in enumerate(tm):
     feature[idx, 10] = temp
 
-np.savetxt('feature.txt', feature)
+np.savetxt('../data/feature.txt', feature)
