@@ -11,14 +11,11 @@ See the included homework.md file for a description of the task
 The contents of this repository are organised as follows.
 
 
-**data** Contains example data files
-
-**docs**Contains all documentation files.
+**data** Contains example data files and computed results
 
 **images** Contains images
 
-**src** (or module name) Put your source code here.
+**script** Contains Pyhton code written for data analysis.
 
-**test** Should contain any test scripts
-
+**report** Contains the report written based on data analysis.
 
