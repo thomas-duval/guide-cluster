@@ -1,35 +1,31 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Sep 18 17:20:03 2016
+"""Compute percent-rank activity distribution for each cluster
 
-@author: Thomas
+- Load percent-rank activity and cluster for each guide.
+- Divide guide into quartile based on their percent-rank activity and cluster.
+- Export the resulting table into a text file.
+
 """
 import numpy as np
 
+# Import activity and cluster assignement for each guide
 rank = np.loadtxt('rank.txt', delimiter="\t")
 
-print(rank[0])
-print(len(rank))
-
+# Divide guides based on their activity and cluster
 quartile = np.zeros(shape=(4, 4))
 for q in range(4):
     for c in range(4):
         count = 0
         for g in range(len(rank)):
-            if rank[g][1] == c and rank[g][0] < (25.0 + q * 25.0)
-            and rank[g][0] >= (q * 25.0):
+            cluster = rank[g][1]
+            activity = rank[g][0]
+            if cluster == c and activity < (25.0 + q * 25.0) and activity >= (q * 25.0):
                 count = count + 1
-            if q == 4 and rank[g][1] == c and rank[g][0] == 100:
+            if q == 4 and cluster == c and activity == 100:
                 count = count + 1
-            if q == 0 and rank[g][1] == c and rank[g][0] == 0:
+            if q == 0 and cluster == c and activity == 0:
                 count = count + 1
         quartile[c][q] = count
 
+# Export results as a text file
 np.savetxt('prediction.txt', quartile)
-
-print(quartile)
-c1 = sum(quartile[0])
-c2 = sum(quartile[1])
-c3 = sum(quartile[2])
-c4 = sum(quartile[3])
-print(c1, c2, c3, c4, c1 + c2 + c3 + c4)
