@@ -1,23 +1,32 @@
 # -*- coding: utf-8 -*-
+
+"""Compute 11 features from guide RNAs to be used for clustering
+
+- Import guides RNAs as a text file created from the provided tsv file.
+- Import Melting point (provided by dnaMATE ) for each guide as a text file.
+- Use Tm and nucleotide count to characterize each guide with 11 features.
+- Export the resulting array as a text file.
+
+"""
+
 import csv
 import numpy as np
 
 sequence_import = []
 tm_import = []
-gene_import = []
 sequence = []
 tm = []
 feature = []
 
 
-# Open files containing sgRNA
+# Open files containing sgRNA and transfer them into an array
 with open('RNA.txt', newline='') as inputfile:
     for row in csv.reader(inputfile):
         sequence_import.append(row)
 sequence = np.asarray(
     [item for sublist in sequence_import for item in sublist])
 
-# Open files containing melting temperature
+# Open files containing melting temperature and transfer them into an array
 with open('Tm.txt', newline='') as inputfile:
     for row in csv.reader(inputfile):
         tm_import.append(row)
@@ -41,5 +50,4 @@ for idx, guide in enumerate(sequence):
 for idx, temp in enumerate(tm):
     feature[idx, 10] = temp
 
-print(feature[0:10])
 np.savetxt('feature.txt', feature)
